@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+  <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
+  <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Denys Kryvoshei</h1>
+    <div class="map-and-properties d-flex">
+      <div id="map" class="map"></div>
+      <div id="properties" class="properties-off d-flex flex-column"></div>
+    </div>
+    <div class="editing-panel d-flex justify-content-center align-items-center flex-wrap">
+      <div id="layers-draw-switch">
+        <span>choose a layer to draw on:</span>
+        <select id="draw-layer-selector" name=''>
+          <option value="layer1" selected>Layer1</option>
+          <option value="layer2">Layer2</option>
+        </select>
+      </div>
+      <!-- <div id="layers-control">
+    <p>choose layer to show</p>
+    <input type="checkbox" class="show" id="layer1" name="layer-show" value="layer1" checked>
+    <label for="layer1">layer1</label><br>
+    <input type="checkbox" class="show" id="layer2" name="layer-show" value="layer2" checked>
+    <label for="layer2">layer2</label><br>
+  </div> -->
+      <div id="layers-editing-type">
+        <span>choose editing type:</span>
+        <label><input type="radio" id="resize-toggler" name="editing-mode" value="resize" checked> Resize</label>
+        <label><input type="radio" id="rotate-toggler" name="editing-mode" value="rotate"> Rotate</label>
+      </div>
+      <div id="fetch-data" class="d-flex justify-content-center align-items-center">
+        <input type="text" name="fetch-table-name" placeholder="Table name">
+        <label for="fetch-table-color">Choose layer color: </label>
+        <input id="fetch-table-color" type="color" name="fetch-table-color">
+        <button id="fetch-button" class="btn btn-primary">Fetch the table from PostGIS</button>
+      </div>
+      <button id='save-changes' class="btn btn-success">Save all changes</button>
+      <button id='save-props' class="btn btn-primary">Save current attributes</button>
+      <button id='send-post' class="btn btn-danger">Send POST</button>
+    </div>
+  </div>
+  <script src="./index.js"></script>
+</body>
+
+</html>
